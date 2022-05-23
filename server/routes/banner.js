@@ -10,6 +10,6 @@ router.post('/remove', remove);
 router.post('/update',update);
 router.get('/getId',getBannerById);
 
-console.log("routes/banner.js");
+console.log("routes的banner.js");
 
 module.exports = router;
