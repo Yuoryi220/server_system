@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const jwtAuth=require('../utils/auth');
+const jwtAuth=require('./utils/auth');
 
 //连接数据库-start
 const mongoose = require('mongoose');

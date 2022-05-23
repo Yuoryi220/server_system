@@ -1,7 +1,7 @@
 const express = require('express');
-const {moveFiles, deleteFiles} = require("../../utils/handleFiles");
+const {moveFiles, deleteFiles} = require("../utils/handleFiles");
 const router = express.Router();
-const {uploadFiles} = require('../../utils/handleFiles');
+const {uploadFiles} = require('../utils/handleFiles');
 
 router.post('/uploadImage', function (req, res, next) {
     const uploadImage = uploadFiles({

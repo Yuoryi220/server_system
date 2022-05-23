@@ -1,4 +1,4 @@
-const {moveFiles,deleteFiles}=require('../../utils/handleFiles');
+const {moveFiles,deleteFiles}=require('../utils/handleFiles');
 const path=require('path');
 const {siteconfigModel} = require("../models/siteconfigModel");
 
