@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .section-content {
+            margin: 120px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>管理系统</h1>
+        </header>
+        <main>
+            <div class="section-content form-content">
+                <div class="content">
+                    <div class="content-info">
+                        <h3>用户登录</h3>
+                        <div>
+                            <div>
+                                <div class="content-row">
+                                    <label>登录账号：</label>
+                                    <input class="form-input" type="text" id="username">
+                                </div>
+                                <div class="content-row">
+                                    <label>登录密码：</label>
+                                    <input class="form-input" type="text" id="password">
+                                </div>
+                                <div class="content-row" style="margin-top: 50px;">
+                                    <label></label>
+                                    <button class="blue" id="loginBtn">登录</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script>
+        $('#loginBtn').click(function() {
+
+            const name = $('#username').val();
+            const pwd = $('#password').val();
+
+            $.ajax({
+                // 前后端接口
+                url: '/users/login',
+                type: 'POST',
+                data: {
+                    name, pwd
+                },
+                success(res) {
+                    console.log('后端返回结果：', res);
+                    if(res.code == 200) {
+                       localStorage.token=res.token;
+                        console.log("token",res.token);
+                        alert('恭喜你，登录成功');
+                        location.href="/index.html";
+                    } else {
+                        alert('账号或密码错误，登录失败')
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
